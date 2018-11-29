@@ -1,0 +1,143 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Laugh Track Studios</title>
+
+    <link rel="stylesheet" href="../CSS/Estilo.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+    <div id="cabecalho">
+        <div class="row" id="divbtn">
+            <div id="divlogo">
+                <button type="button" onclick="window.location.href='../index.html'" id="btlogo" class="btn btn-primary">Logo</button>
+            </div>
+            <div id="divbtns">
+                <button type="button" onclick="window.location.href='../HTML/Jogos.html'" id="btjogos" class="btn btn-outline-danger">Jogos</button>
+                <button type="button" onclick="window.location.href='../HTML/Galeria.html'" id="btgaleria" class="btn btn-outline-danger">Galeria</button>
+                <button type="button" onclick="window.location.href='../HTML/Downloads.html'" id="btdownloads" class="btn btn-outline-danger">Downloads</button>
+                <button type="button" onclick="window.location.href='../HTML/Contato.html'" id="btcontato" class="btn btn-outline-danger">Contato</button>
+                <button type="button" onclick="window.location.href='../HTML/Sobre.html'" id="btsobre" class="btn btn-outline-danger">Sobre Nós</button>
+            </div>
+            <div class="" id="divlogin">
+                <button type="button" onclick="window.location.href='../PHP/Login.php'" id="btlogin" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+    <div id="corpo">
+        <div id="divForms">
+            <!--Lista de Opções-->
+            <div class="form-group">
+                <select class="form-control" id="ContSelect" onchange="changeForm(this.value)">
+                    <option value="Null" disabled selected>Selecione um tipo de contato</option>
+                    <option value="Elogio">Elogio</option>
+                    <option value="Sugestão">Sugestão</option>
+                    <option value="Suporte">Suporte</option>
+                </select>
+            </div>
+
+            <!--Formulário de opção elogio-->
+            <form id="formElogio" action="../PHP/Elogio.php">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Nome</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea type="textarea" rows="5" placeholder="Elogio" class="form-control"></textarea>
+                </div>
+                <div class="form-group" id="grpEL">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                </div>
+            </form>
+
+            <!--Formulário de Suporte-->
+            <form id="formSuporte" action="../PHP/Suporte.php">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Nome</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nome">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@exemplo.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option disabled selected>Selecione o tipo de problema</option>
+                        <option>Falha de Download</option>
+                        <option>Falha ao Carregar o Jogo</option>
+                        <option>Bug no Jogo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Descrição" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                </div>
+            </form>
+
+            <!--Formulário de Sugestão-->
+            <form id="formSugestao" action="../PHP/Sugestão.php">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Nome</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Sugestão" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../JavaScript/Horario.js"></script>
+    <script>
+
+        document.getElementById("formElogio").style.display = "none";
+        document.getElementById("formSugestao").style.display = "none";
+        document.getElementById("formSuporte").style.display = "none";
+
+        function changeForm(valor) {
+            debugger;
+
+            //var option = this.querySelector('option:checked');
+
+            if (valor == "Null") {
+                document.getElementById("formElogio").style.display = "none";
+                document.getElementById("formSugestao").style.display = "none";
+                document.getElementById("formSuporte").style.display = "none";
+            } else if (valor == "Elogio") {
+                document.getElementById("formElogio").style.display = "block";
+                document.getElementById("formSugestao").style.display = "none";
+                document.getElementById("formSuporte").style.display = "none";
+            } else if (valor == "Sugestão") {
+                document.getElementById("formElogio").style.display = "none";
+                document.getElementById("formSugestao").style.display = "block";
+                document.getElementById("formSuporte").style.display = "none";
+            } else if (valor == "Suporte") {
+                document.getElementById("formElogio").style.display = "none";
+                document.getElementById("formSugestao").style.display = "none";
+                document.getElementById("formSuporte").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
