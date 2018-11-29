@@ -12,7 +12,7 @@
 	//var_dump($helper);
 
 	$permissions = ['email']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
+	$loginUrl = $helper->getLoginUrl('https://laughtrackstudios.azurewebsites.net/PHP/Login.php', $permissions);
 
 	echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 
